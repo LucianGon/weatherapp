@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Weather App </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Cidade" spellcheck="false">
+            <button><img src="media/searchicon.png" alt=""></button>
+        </div>
+        <div class="weather">
+            <img src="media/sun.png" class="weather-icon">
+            <h1 class="temp"> 22°C </h1>
+            <h2 class="city">Curitiba</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="media/humidity.png">
+                    <div>
+                        <p class="humidity"> 83%</p>
+                        <p> Umidade do ar </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="media/wind.png">
+                    <div>
+                        <p class="wind"> 20</p>
+                        <p> Km/h </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Segue o script para vincular API na busca-->
+<script>
+
+
+
+const apiKey = "eec6df7064b1066ff57c7e907eea3d1e";
+const apiUrl= "https://api.openweathermap.org/data/2.5/weather?units=metric&q=curitiba";
+
+async function checkWeather(){
+    const response = await fetch(apiUrl + `&appid=${apiKey}`);
+    var data = await response.json();
+
+    console.log(data);
+
+}
+
+checkWeather();
+
+</script>
+
+
+
+</body>
+</html>
